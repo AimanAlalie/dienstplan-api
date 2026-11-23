@@ -1,0 +1,50 @@
+@SpringBootApplication: Startet die Spring-Boot-App (steht auf der Main-Klasse).
+
+@RestController: Empfängt HTTP-Anfragen und gibt JSON oder Text zurück.
+
+@Service: Business-Logik.
+
+@Repository: Zugriff auf die Datenbank.
+
+@Component: Allgemeine Klasse, von der Spring ein Objekt erstellt und verwaltet. Wie @RestController, empfängt aber keine HTTP-Anfragen.
+
+@Autowired: Spring übergibt automatisch das fertige Objekt, statt dass ich es mit new selbst erstelle.
+Alle Klassen nutzen dasselbe Objekt. Funktioniert nur, wenn die Klasse @Component, @Service, @Repository o. Ä. hat.
+----------------------------------------------
+java
+                                                              @Autowired
+private PatienetService service= new PatienetService(); =>    private PatienetService service;
+-------------------------------------------------
+@RequestMapping("/patients"): Präfix für alle Methoden der Klasse. werden nur dadurch gerufen3
+@RequestMapping("/patients") + @GetMapping("/print-name") ergibt /patients/print-name.
+
+@GetMapping: Daten lesen.
+
+@PostMapping: Daten neu erstellen.
+
+@PutMapping: Daten ändern.
+
+@DeleteMapping: Daten löschen.
+
+@PathVariable: Wert aus der URL, z. B. für ein bestimmtes Objekt: /patients/KAMAL
+
+@RequestParam: Wert nach dem ?, z. B. für Suche oder Filter: /patients/search?name=KAMAL
+
+@RequestBody: JSON aus dem Body (bei POST und PUT), z. B. {"name":"KAMAL"}
+
+@Data // automatische Getter und Setter
+@NoArgsConstructor //leere Constructor
+@AllArgsConstructor // Constructor
+@Bulider
+
+Model
+Entity                                        DTO (Data transfer Objekt)                              Repository
+is the ORM                                                                     wo insert, update,delete,select im db inhand Entity
+Table to gavaclass
+z.b
+private Integer UserId;
+private String Username;
+with getter and setter
+
+
+ORM Opject Relational Mapping
