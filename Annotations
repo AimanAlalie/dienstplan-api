@@ -1,3 +1,4 @@
+Hibernate prüft ob die Klassen und Tabellen zusammen passen
 @SpringBootApplication: Startet die Spring-Boot-App (steht auf der Main-Klasse).
 
 @RestController: Empfängt HTTP-Anfragen und gibt JSON oder Text zurück.
