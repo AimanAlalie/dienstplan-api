@@ -1,5 +1,6 @@
 package de.alalie.dienstplanapi.employee;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,25 +12,37 @@ import java.util.UUID;
 public class EmployeeController {
 
     private final EmployeeService service;
+    private final EmployeeMapper mapper;
 
-    public EmployeeController(EmployeeService service) {
+
+    public EmployeeController(EmployeeService service, EmployeeMapper mapper) {
         this.service = service;
+        this.mapper = mapper;
+
     }
+
 
     @GetMapping
-    public List<Employee> findAll() {
-        return service.findAll();
+    public List<EmployeeResponse> findAll() {
+        return service.findAll()
+                .stream()
+                .map(e -> mapper.toResponse(e))
+                .toList();
     }
+
 
     @GetMapping("/{id}")
-    public Employee findById(@PathVariable UUID id) {
-        return service.findById(id);
+    public EmployeeResponse findById(@PathVariable UUID id) {
+        Employee employee = service.findById(id);
+        return mapper.toResponse(employee);
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
+
     @PostMapping
-    public Employee create(@RequestBody Employee employee) {
-        return service.create(employee);
+    @ResponseStatus(HttpStatus.CREATED)
+    public EmployeeResponse create(@Valid @RequestBody EmployeeRequest request) {
+        Employee saved = service.create(mapper.toEntity(request));
+        return mapper.toResponse(saved);
     }
 
 

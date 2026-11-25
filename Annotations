@@ -39,13 +39,12 @@ private PatienetService service= new PatienetService(); =>    private PatienetSe
 @Bulider
 
 Model
-Entity                                        DTO (Data transfer Objekt)                              Repository
-is the ORM                                                                     wo insert, update,delete,select im db inhand Entity
-Table to gavaclass
+Entity                                                   DTO (Data transfer Objekt)                              Repository
+is the ORM(ORM Opject Relational Mapping)                                                         wo insert, update,delete,select im db inhand Entity
+Table to javaclass
 z.b
 private Integer UserId;
 private String Username;
 with getter and setter
 
 
-ORM Opject Relational Mapping
