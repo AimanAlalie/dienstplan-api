@@ -1,5 +1,6 @@
 ### Alle Mitarbeiter
-GET http://localhost:8080/api/employees
+GET http://localhost:8080/api/employees/4a713aa9-d9e1-4568-a915-7a3ced6dc830
+
 
 ### Neuer Mitarbeiter
 POST http://localhost:8080/api/employees

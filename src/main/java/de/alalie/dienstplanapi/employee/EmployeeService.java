@@ -1,5 +1,6 @@
 package de.alalie.dienstplanapi.employee;
 
+import de.alalie.dienstplanapi.common.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class EmployeeService {
 
     public Employee findById(UUID id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Employee not found: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Employee not found: " + id));
     }
 
     public Employee create(Employee employee) {
