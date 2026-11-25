@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
-@Table(name ="employees")
+@Table(name = "employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -23,22 +23,22 @@ public class Employee {
     private String lastName;
     @Column(name = "abbreviation")
     private String abbreviation;
-    @Column (name = "color")
+    @Column(name = "color")
     private String color = "#6366f1";
     @Column(name = "position")
     private String position;
     @Column(name = "department")
     private String department;
     @Enumerated(EnumType.STRING)
-    @Column(name = "employment_type")
-    private EmploymentType employmentType;
+    @Column(name = "employment_type", nullable = false)
+    private EmploymentType employmentType = EmploymentType.FULL_TIME;
     @Column(name = "weekly_hours")
     private BigDecimal weeklyHours;
     @Column(name = "phone")
     private String phone;
     @Enumerated(EnumType.STRING)
-    @Column(name = "status")
-    private EmployeeStatus status;
+    @Column(name = "status", nullable = false)
+    private EmployeeStatus status = EmployeeStatus.ACTIVE;
     @Column(name = "notes")
     private String notes;
     @Column(name = "hired_at")
@@ -163,16 +163,12 @@ public class Employee {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
+
 
     public Instant getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+
 
 }

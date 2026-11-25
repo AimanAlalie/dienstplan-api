@@ -1,0 +1,13 @@
+### Alle Mitarbeiter
+GET http://localhost:8080/api/employees
+
+### Neuer Mitarbeiter
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+  "firstName": "Sara",
+  "lastName": "Müller",
+  "abbreviation": "SM",
+  "weeklyHours": 30
+}
