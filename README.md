@@ -1,4 +1,4 @@
-[README (1).md](https://github.com/user-attachments/files/35483937/README.1.md)
+
 # Dienstplan API
 
 REST-API für die Dienstplanung in der Persönlichen Assistenz und Pflege, entwickelt mit Spring Boot.
